@@ -1,0 +1,64 @@
+Module-to-API mapping for NestJS backend (diary-app frontend)
+
+Entries Module
+- Controllers / Routes:
+  - GET  /api/entries                 -> list (pagination, filters, search)
+  - GET  /api/entries/:id             -> retrieve single entry
+  - POST /api/entries                 -> create entry
+  - PUT  /api/entries/:id             -> update entry
+  - DELETE /api/entries/:id          -> delete entry
+  - GET  /api/entries?date=...        -> filter by date
+  - GET  /api/entries?search=...      -> search entries
+  Auth: Required
+  Services: `EntriesService`, DTOs: `CreateEntryDto`, `UpdateEntryDto`, `QueryEntryDto`
+
+Attachments Module (can be part of Entries or separate)
+- Controllers / Routes:
+  - POST /api/entries/:id/attachments -> upload attachment(s) (multipart)
+  - GET  /api/attachments/:id         -> download/stream attachment
+  - DELETE /api/attachments/:id       -> (optional) remove attachment
+  Auth: Required
+  Services: `AttachmentsService`, middleware: FileInterceptor (multer)
+
+Auth Module
+- Controllers / Routes:
+  - POST /api/auth/login              -> login (returns token or sets cookie)
+  - POST /api/auth/register           -> register (optional)
+  - GET  /api/auth/callback           -> OAuth callback handler
+  Auth: Public for login/register/callback; protected for logout
+  Services/Providers: `AuthService`, `JwtStrategy`, optional OAuth strategies
+
+Users Module
+- Controllers / Routes:
+  - GET  /api/users/me                -> current user profile
+  - PUT  /api/users/me                -> update profile (displayName, avatar)
+  - (optional) GET /api/users/:id     -> admin-only user lookup
+  Auth: Required (except admin endpoints if public)
+  Services: `UsersService`, DTOs: `UpdateUserDto`
+
+Stats Module (optional)
+- Controllers / Routes:
+  - GET /api/stats/summary            -> small dashboard (counts, recent activity)
+  - (optional) GET /api/stats/activity?range=30d
+  Auth: Required
+  Services: `StatsService`
+
+Prisma / Database Module
+- Provide `PrismaService` (or TypeORM provider) to other modules
+- No direct routes; injected into services like `EntriesService`, `UsersService`, `AttachmentsService`
+
+Common / Shared Module
+- Shared pipes/filters/interceptors
+  - Global `ValidationPipe`, `PaginationPipe`, exception filter, logging interceptor
+  - Reusable DTOs and interfaces (PaginationResult<T>, ApiError)
+
+Security & Integration Notes
+- Protect entry/attachment actions with `JwtAuthGuard` and ownership checks so users access only their own data.
+- Decide token strategy: `Authorization: Bearer` vs httpOnly secure cookies (be consistent across frontend).
+- CORS: allow diary-app origin; CSRF: protect state-changing endpoints if using cookies.
+
+Frontend expectations
+- Consistent JSON envelope: { data, meta?, error? }
+- All protected endpoints require auth header or cookie; frontend handles token storage/refresh.
+
+-- End
