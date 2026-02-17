@@ -1,0 +1,199 @@
+.diary-app {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.diary-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 25px 20px;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+  border-bottom: none;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.diary-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.user-name {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 500;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.logout-btn {
+  padding: 10px 24px;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 25px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.logout-btn:hover {
+  background: rgba(255,255,255,0.3);
+  border-color: rgba(255,255,255,0.8);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+.diary-main {
+  padding: 40px 20px;
+}
+
+.diary-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.diary-actions {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.new-entry-btn {
+  padding: 16px 48px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.new-entry-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.6);
+}
+
+.new-entry-btn:active {
+  transform: translateY(-2px);
+}
+
+.loading-entries {
+  text-align: center;
+  padding: 60px 20px;
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+.no-entries {
+  text-align: center;
+  padding: 80px 40px;
+  background: white;
+  border-radius: 16px;
+  border: 2px dashed #ddd;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.no-entries-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+.no-entries-text {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.no-entries-subtext {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+@media (max-width: 768px) {
+  .diary-header {
+    padding: 20px 15px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .diary-title {
+    font-size: 1.6rem;
+  }
+
+  .user-info {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .diary-main {
+    padding: 30px 15px;
+  }
+
+  .new-entry-btn {
+    padding: 14px 40px;
+    font-size: 1rem;
+  }
+
+  .no-entries {
+    padding: 60px 30px;
+  }
+}
+

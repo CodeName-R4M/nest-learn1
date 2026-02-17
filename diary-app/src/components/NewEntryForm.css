@@ -1,0 +1,234 @@
+.new-entry-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.new-entry-form {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.form-header h2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.8rem;
+  color: #2d3748;
+  margin: 0;
+  font-weight: 700;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #a0aec0;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #f7fafc;
+  color: #667eea;
+  transform: rotate(90deg);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  color: #2d3748;
+  margin-bottom: 8px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.title-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  border: 1.5px solid #cbd5e0;
+  border-radius: 8px;
+  background: white;
+  color: #2d3748;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.title-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.content-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border: 1.5px solid #cbd5e0;
+  border-radius: 8px;
+  background: white;
+  color: #2d3748;
+  resize: vertical;
+  min-height: 200px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.content-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.image-input {
+  width: 100%;
+  padding: 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.95rem;
+  border: 2px dashed #cbd5e0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  color: #4a5568;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.image-input:hover {
+  border-color: #667eea;
+  background: #f7fafc;
+}
+
+.image-preview {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.remove-image-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.remove-image-btn:hover {
+  background: #ff5252;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.25);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.cancel-btn, .submit-btn {
+  padding: 10px 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border: none;
+}
+
+.cancel-btn {
+  background: #f7fafc;
+  border: 1.5px solid #cbd5e0;
+  color: #4a5568;
+}
+
+.cancel-btn:hover {
+  background: #edf2f7;
+  border-color: #a0aec0;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
